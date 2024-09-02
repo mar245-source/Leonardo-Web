@@ -1,0 +1,423 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Conference Prod</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: Arial, sans-serif; 
+
+            background-color: Black; 
+
+            margin: 0; 
+
+            padding: 20px; 
+
+        } 
+
+        table { 
+
+            width: 100%; 
+
+            border-collapse: collapse; 
+
+            background-color: gray; 
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+
+            border-radius: 8px; 
+
+            overflow: hidden; 
+
+        } 
+
+        th, td { 
+
+            border: 1px solid black; 
+
+            padding: 12px; 
+
+            text-align: left; 
+
+        } 
+
+        th { 
+
+            background-color: #007bff; 
+
+            color: #fff; 
+
+            font-weight: bold; 
+
+        } 
+
+        tr:nth-child(even) { 
+
+            background-color: #007bff; 
+
+        } 
+
+        tr:hover { 
+
+            background-color: #007bff; 
+
+        } 
+
+        input[type="number"] { 
+
+            width: 100px; 
+
+            text-align: center; 
+
+            border: 1px solid #ccc; 
+
+            border-radius: 4px; 
+
+            padding: 8px; 
+
+            box-sizing: border-box; 
+
+            font-size: 22px; /* Increased font size */ 
+
+        } 
+
+        input[type="number"]:focus { 
+
+            border-color: #007bff; 
+
+            outline: none; 
+
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); 
+
+        } 
+
+        .container { 
+
+            max-width: 1200px; 
+
+            margin: 0 auto; 
+
+            padding: 20px; 
+
+        } 
+
+        .header { 
+
+            text-align: center; 
+
+            margin-bottom: 20px; 
+
+        } 
+
+        .header h1 { 
+
+            margin: 0; 
+
+            color: #333; 
+
+        } 
+
+        .total-container { 
+
+            margin-top: 20px; 
+
+            text-align: center; 
+
+        } 
+
+        .total-label { 
+
+            font-weight: bold; 
+
+            margin-right: 10px; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+    <div class="container"> 
+
+        <div class="header"> 
+
+            <h1>Conference Prod</h1> 
+
+        </div> 
+
+        <table> 
+
+            <thead> 
+
+                <tr> 
+
+                    <h1><th>Hotel</th></h1> 
+
+                    <th>Code</th> 
+
+                    <th>Usernames</th> 
+
+                    <th>Password</th> 
+
+                    <th>PROD</th> 
+
+                </tr> 
+
+            </thead> 
+
+            <tbody> 
+
+                <tr> 
+
+                    <td>Birmingham</td> 
+
+                    <td>BHI</td> 
+
+                    <td>Harvyheerbirmingham</td> 
+
+                    <td>Conference2017</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Brighton</td> 
+
+                    <td>BRI</td> 
+
+                    <td>Sarah.hannon</td> 
+
+                    <td>Conference2022</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Leeds</td> 
+
+                    <td>LEI</td> 
+
+                    <td>HarvyHeer</td> 
+
+                    <td>Seaside23</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Leonardo Hotel Royal Glasgow</td> 
+
+                    <td>GLI</td> 
+
+                    <td>LisaWatson1</td> 
+
+                    <td>Glenmore1</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Leonardo Inn Glasgow West End</td> 
+
+                    <td>LGP</td> 
+
+                    <td>WatsonLisa</td> 
+
+                    <td>Glenmore2!</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Liverpool</td> 
+
+                    <td>LVI</td> 
+
+                    <td>Liverpoolconference</td> 
+
+                    <td>Liverpool53</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Manchester</td> 
+
+                    <td>MAI</td> 
+
+                    <td>Conferencebookings</td> 
+
+                    <td>Conference2021</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Manchester Piccadilly</td> 
+
+                    <td>LMA</td> 
+
+                    <td>LMA_Regional</td> 
+
+                    <td>LMA_Manchester2023</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Sheffield</td> 
+
+                    <td>SHI</td> 
+
+                    <td>ZoeSharman</td> 
+
+                    <td>Conference2021</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>The Midland Manchester</td> 
+
+                    <td>LMM</td> 
+
+                    <td>Midlandreservations</td> 
+
+                    <td>Midland02</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Leonardo Hotel Nottingham</td> 
+
+                    <td>NTI</td> 
+
+                    <td>leonardo_nottingham</td> 
+
+                    <td>mcy1uH2p7LEN</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Bzon</td> 
+
+                    <td>LVI</td> 
+
+                    <td>leonardo_liverpool</td> 
+
+                    <td>Ms4ah0Lb4FFT</td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Leonardo Hotel East Midlands Airport</td> 
+
+                    <td>TEM</td> 
+
+                    <td>Scania</td> 
+
+                    <td></td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+                <tr> 
+
+                    <td>Email</td> 
+
+                    <td></td> 
+
+                    <td></td> 
+
+                    <td></td> 
+
+                    <td><input type="number" value="1" min="0" onchange="updateTotal()"></td> 
+
+                </tr> 
+
+            </tbody> 
+
+        </table> 
+
+        <div class="total-container"> 
+
+            <span class="total-label">Total:</span> 
+
+            <input type="number" id="total" value="0" min="0" readonly> 
+
+        </div> 
+
+    </div> 
+
+  
+
+    <script> 
+
+        function updateTotal() { 
+
+            let total = 0; 
+
+            const inputs = document.querySelectorAll('tbody input[type="number"]'); 
+
+            inputs.forEach(input => { 
+
+                total += parseInt(input.value) || 0; 
+
+            }); 
+
+            document.getElementById('total').value = total; 
+
+        } 
+
+  
+
+        // Initial calculation 
+
+        updateTotal(); 
+
+    </script> 
+
+</body> 
+
+</html> 
+
+ 

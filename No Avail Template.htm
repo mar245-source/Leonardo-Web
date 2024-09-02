@@ -1,0 +1,789 @@
+<!DOCTYPE html>  
+
+  
+
+<html lang="en">  
+
+  
+
+   
+
+  
+
+<head>  
+
+  
+
+    <meta charset="UTF-8">  
+
+  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+  
+
+    <title>Cancellation Confirmation</title>  
+
+  
+
+    <style>  
+
+  
+
+        body {  
+
+  
+
+            font-family: 'Calibri', calibri;  
+
+  
+
+            margin: 0;  
+
+  
+
+            padding: 0;  
+
+  
+
+            background-color: black;  
+
+  
+
+            color: #333;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .container {  
+
+  
+
+            width: 80%;  
+
+  
+
+            margin: 40px auto;  
+
+  
+
+            background-color: #fff;  
+
+  
+
+            border-radius: 8px;  
+
+  
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+
+  
+
+            padding: 30px;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        h2 {  
+
+  
+
+            text-align: center;  
+
+  
+
+            color: #444;  
+
+  
+
+            padding-bottom: 20px;  
+
+  
+
+            border-bottom: 2px solid #ddd;  
+
+  
+
+            margin-bottom: 30px;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .form-group {  
+
+  
+
+            margin-bottom: 20px;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .form-group label {  
+
+  
+
+            display: block;  
+
+  
+
+            margin-bottom: 8px;  
+
+  
+
+            font-weight: bold;  
+
+  
+
+            font-size: 1rem;  
+
+  
+
+            color: #555;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .form-group input,  
+
+  
+
+        .form-group select {  
+
+  
+
+            width: 100%;  
+
+  
+
+            padding: 12px;  
+
+  
+
+            border: 1px solid #ccc;  
+
+  
+
+            border-radius: 4px;  
+
+  
+
+            box-sizing: border-box;  
+
+  
+
+            font-size: 1rem;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .form-group input[type="submit"] {  
+
+  
+
+            background-color: #333;  
+
+  
+
+            color: #fff;  
+
+  
+
+            border: none;  
+
+  
+
+            cursor: pointer;  
+
+  
+
+            font-size: 1.1rem;  
+
+  
+
+            transition: background-color 0.3s ease;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .form-group input[type="submit"]:hover {  
+
+  
+
+            background-color: #555;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .confirmation {  
+
+  
+
+            border: 1px solid #ccc;  
+
+  
+
+            padding: 20px;  
+
+  
+
+            background-color: #f9f9f9;  
+
+  
+
+            margin-top: 30px;  
+
+  
+
+            display: none;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .confirmation h3 {  
+
+  
+
+            font-size: 1.5rem;  
+
+  
+
+            margin-bottom: 20px;  
+
+  
+
+            text-align: center;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        .confirmation p {  
+
+  
+
+            margin: 10px 0;  
+
+  
+
+            line-height: 1.6;  
+
+  
+
+        }  
+
+  
+
+   
+
+  
+
+        #output {  
+
+  
+
+            margin-top: 20px;  
+
+  
+
+            padding: 20px;  
+
+  
+
+            border-radius: 4px;  
+
+  
+
+            background-color: #f7f7f7;  
+
+  
+
+            font-family: 'Calibri', sans-serif;  
+
+  
+
+            font-size: 1rem;  
+
+  
+
+            white-space: pre-wrap;  
+
+  
+
+        }  
+
+  
+
+          
+
+  
+
+    </style>  
+
+  
+
+</head>  
+
+  
+
+   
+
+  
+
+<body>  
+
+  
+
+    <div class="container">  
+
+  
+
+        <h2>No Avail Template</h2>  
+
+  
+
+        <form id="enquiryForm">  
+
+  
+
+            <div class="form-group">  
+
+  
+
+                <label for="hotel">Select Hotel:</label>  
+
+  
+
+                <select id="hotel" name="hotel" required>  
+
+  
+
+<option value="Leonardo Hotel Aberdeen">ABI</option>  
+
+  
+
+<option value="Leonardo Inn Hotel Aberdeen Airport">LAS</option>  
+
+  
+
+<option value="Leonardo Hotel and Conference Venue Aberdeen Airport">TAP</option>  
+
+  
+
+<option value="Leonardo Hotel Belfast">BFI</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Birmingham">BHI</option>  
+
+  
+
+<option value="Leonardo Hotel Bradford">BDI</option>  
+
+  
+
+<option value="Leonardo Hotel Brighton">BRI</option>  
+
+  
+
+<option value="The Grand Brighton">LGB</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Brighton Waterfront">TBR</option>  
+
+  
+
+<option value="Leonardo Hotel Bristol City">LBG</option>  
+
+  
+
+<option value="Leonardo Hotel Cardiff">TCA</option>  
+
+  
+
+<option value="Leonardo Hotel Cheltenham">TCH</option>  
+
+  
+
+<option value="Leonardo Hotel Chester">LCG</option>  
+
+  
+
+<option value="Leonardo Hotel Cork">CKI</option>  
+
+  
+
+<option value="Leonardo Hotel Derby">DBI</option>  
+
+  
+
+<option value="Leonardo Hotel Dublin Christchurch">CCI</option>  
+
+  
+
+<option value="Leonardo Hotel Dublin Parnell Street">PAI</option>  
+
+  
+
+<option value="NYX Hotel Dublin Portobello">NDP</option>  
+
+  
+
+<option value="Leonardo Hotel East Midlands Airport">TEM</option>  
+
+  
+
+<option value="Leonardo Boutique Hotel Edinburgh City">LET</option>  
+
+  
+
+<option value="Leonardo Hotel Edinburgh Murrayfield">LEC</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Edinburgh Haymarket">LER</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Edinburgh">EDI</option>  
+
+  
+
+<option value="Leonardo Hotel Exeter">EXI</option>  
+
+  
+
+<option value="Leonardo Hotel Galway">GAI</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Glasgow">GLI</option>  
+
+  
+
+<option value="Leonardo Inn Glasgow West End">LGP</option>  
+
+  
+
+<option value="Leonardo Hotel and Conference Venue Hinckley Island">HHI</option>  
+
+  
+
+<option value="Leonardo Hotel Inverness">TIN</option>  
+
+  
+
+<option value="Leonardo Hotel Leeds">LEI</option>  
+
+  
+
+<option value="Leonardo Hotel Liverpool">LVI</option>  
+
+  
+
+<option value="Leonardo Hotel London Croydon">CRI</option>  
+
+  
+
+<option value="Leonardo Hotel London Watford">WTI</option>  
+
+  
+
+<option value="Leonardo Hotel London Heathrow Airport">LHW</option>  
+
+  
+
+<option value="Leonardo Royal Hotel London Tower Bridge">LLT</option>  
+
+  
+
+<option value="Leonardo Royal Hotel London St Paul's">LLS</option>  
+
+  
+
+<option value="Leonardo Royal Hotel London City">LLC</option>  
+
+  
+
+<option value="The Dilly">LLP</option>  
+
+  
+
+<option value="NYX London Holborn">NLH</option>  
+
+  
+
+<option value="Leonardo Hotel Manchester Central">MAI</option>  
+
+  
+
+<option value="The Midland Manchester">LMM</option>  
+
+  
+
+<option value="Leonardo Hotel Manchester Piccadilly">LMA</option>  
+
+  
+
+<option value="Leonardo Hotel Gotham">LMG</option>  
+
+  
+
+<option value="Leonardo Hotel Middlesbrough">TMI</option>  
+
+  
+
+<option value="Leonardo Hotel Milton Keynes">MKI</option>  
+
+  
+
+<option value="Leonardo Hotel Newcastle">NWI</option>  
+
+  
+
+<option value="Leonardo Hotel Newcastle Quayside">GTI</option>  
+
+  
+
+<option value="Leonardo Hotel Nottingham">NTI</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Oxford">HOX</option>  
+
+  
+
+<option value="Leonardo Boutique Hotel Huntingtower Perth">LPH</option>  
+
+  
+
+<option value="Leonardo Hotel Plymouth">PLI</option>  
+
+  
+
+<option value="Leonardo Hotel Sheffield">SHI</option>  
+
+  
+
+<option value="Leonardo Hotel Southampton">SNI</option>  
+
+  
+
+<option value="Leonardo Royal Hotel Southampton Grand Harbour">LSG</option>  
+
+  
+
+<option value="Leonardo Hotel Swindon">SWI</option>  
+
+  
+
+            </select>  
+
+  
+
+            </div>  
+
+  
+
+   
+
+  
+
+            <div class="form-group">  
+
+  
+
+                <label for="name">Recipient's Name:</label>  
+
+  
+
+                <input type="text" id="name"</div>  
+
+  
+
+   
+
+  
+
+            <div class="form-group">  
+
+  
+
+                <label for="date">Date (D/M/Y):</label>  
+
+  
+
+                <input type="text" id="date"</div>  
+
+  
+
+   
+
+  
+
+            <div class="form-group">  
+
+  
+
+                <input type="submit" value="Generate Message">         </div>  
+
+  
+
+   
+
+  
+
+        <div id="output" class="confirmation"></div>  
+
+  
+
+    </div>  
+
+  
+
+   
+
+  
+
+<script>  
+
+  
+
+    document.getElementById('enquiryForm').addEventListener('submit', function(event) {  
+
+  
+
+        event.preventDefault();  
+
+  
+
+   
+
+  
+
+        const name = document.getElementById('name').value;  
+
+  
+
+        const hotel = document.getElementById('hotel').value;  
+
+  
+
+        const date = document.getElementById('date').value;  
+
+  
+
+   
+
+  
+
+        const message = `Dear ${name},\n\nThank you for your enquiry regarding accommodation at ${hotel} on ${date}.\n\Regrettably, we do not have availability for the requested date.\n\nIf you would like to explore alternative dates or another Leonardo Hotel location, or if you need assistance with future reservations, please don't hesitate to reach out. I would be happy to help.`;  
+
+  
+
+   
+
+  
+
+        const outputDiv = document.getElementById('output');  
+
+  
+
+        outputDiv.textContent = message;  
+
+  
+
+        outputDiv.style.display = 'block';  
+
+  
+
+    });  
+
+  
+
+</script>  
+
+  
+
+</body>  
+
+  
+
+   
+
+  
+
+</html>  
+
+  
+
+ 

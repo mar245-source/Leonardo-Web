@@ -1,0 +1,411 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Non-Refundable Reservation Details</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: 'Calibri', sans-serif; 
+
+            margin: 0; 
+
+            padding: 0; 
+
+            background: #f0f0f0; 
+
+            color: black; 
+
+        } 
+
+  
+
+        .container { 
+
+            width: 80%; 
+
+            margin: 20px auto; 
+
+            background: #fff; 
+
+            border-radius: 8px; 
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+
+            padding: 20px; 
+
+            box-sizing: border-box; 
+
+        } 
+
+  
+
+        h1 { 
+
+            text-align: center; 
+
+            color: #333; 
+
+            padding: 20px 0; 
+
+        } 
+
+  
+
+        .form-group { 
+
+            margin-bottom: 15px; 
+
+        } 
+
+  
+
+        .form-group label { 
+
+            display: block; 
+
+            margin-bottom: 5px; 
+
+            font-weight: bold; 
+
+        } 
+
+  
+
+        .form-group input, 
+
+        .form-group select { 
+
+            width: calc(100% - 22px); 
+
+            padding: 10px; 
+
+            border: 1px solid #ddd; 
+
+            border-radius: 4px; 
+
+            box-sizing: border-box; 
+
+        } 
+
+  
+
+        .form-group input[type="button"] { 
+
+            background-color: black; 
+
+            color: #fff; 
+
+            border: none; 
+
+            cursor: pointer; 
+
+            margin-top: 10px; 
+
+        } 
+
+  
+
+        .form-group input[type="button"]:hover { 
+
+            background-color: #333; 
+
+        } 
+
+  
+
+        .confirmation { 
+
+            border: 1px solid #ddd; 
+
+            padding: 15px; 
+
+            background-color: #f9f9f9; 
+
+            margin-top: 20px; 
+
+            overflow: auto; 
+
+            box-sizing: border-box; 
+
+        } 
+
+  
+
+        .confirmation h2 { 
+
+            font-size: 1.5em; 
+
+            margin-bottom: 10px; 
+
+        } 
+
+  
+
+        .confirmation pre { 
+
+            margin: 0; 
+
+            white-space: pre-wrap; 
+
+            word-wrap: break-word; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+  
+
+<body> 
+
+    <div class="container"> 
+
+        <h1>Non-Refundable Reservation Details</h1> 
+
+        <div class="form-group"> 
+
+        <label for="hotel">Select Hotel:</label> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Hotel Selector</title> 
+
+<select name="hotel" id="hotel"> 
+
+    <option value="ABI" data-phone="0122 438 1200" data-reception="5">Leonardo Hotel Aberdeen</option> 
+
+    <option value="LAS" data-phone="0122 477 2884" data-reception="-">Leonardo Inn Hotel Aberdeen Airport</option> 
+
+    <option value="TAP" data-phone="0871 376 9000" data-reception="4">Leonardo Hotel and Conference Venue Aberdeen Airport</option> 
+
+    <option value="BFI" data-phone="0289 053 3500" data-reception="6">Leonardo Hotel Belfast</option> 
+
+    <option value="BHI" data-phone="0121 606 9000" data-reception="6">Leonardo Royal Hotel Birmingham</option> 
+
+    <option value="BDI" data-phone="0127 484 8500" data-reception="5">Leonardo Hotel Bradford</option> 
+
+    <option value="BRI" data-phone="0127 386 2121" data-reception="6">Leonardo Hotel Brighton</option> 
+
+    <option value="LGB" data-phone="0127 322 4300" data-reception="7">The Grand Brighton</option> 
+
+    <option value="TBR" data-phone="0871 376 9041" data-reception="6">Leonardo Royal Hotel Brighton Waterfront</option> 
+
+    <option value="LBG" data-phone="0117 374 5900" data-reception="6">Leonardo Hotel Bristol City</option> 
+
+    <option value="TCA" data-phone="0871 376 9011" data-reception="5">Leonardo Hotel Cardiff</option> 
+
+    <option value="TCH" data-phone="0161 774 2984" data-reception="4">Leonardo Hotel Cheltenham</option> 
+
+    <option value="LCG" data-phone="0124 466 7600" data-reception="5">Leonardo Hotel Chester</option> 
+
+    <option value="CKI" data-phone="00353 21 494 3000" data-reception="6">Leonardo Hotel Cork</option> 
+
+    <option value="DBI" data-phone="0133 262 1000" data-reception="6">Leonardo Hotel Derby</option> 
+
+    <option value="CCI" data-phone="00353 1454 0000" data-reception="5">Leonardo Hotel Dublin Christchurch</option> 
+
+    <option value="PAI" data-phone="00353 1878 4900" data-reception="6">Leonardo Hotel Dublin Parnell Street</option> 
+
+    <option value="NDT" data-phone="00353 191 35400" data-reception="6">NYX Hotel Dublin Christchurch</option> 
+
+    <option value="NDP" data-phone="00353 1695 0383" data-reception="5">NYX Hotel Dublin Portobello</option> 
+
+    <option value="TEM" data-phone="0161 774 2985" data-reception="4">Leonardo Hotel East Midlands Airport</option> 
+
+    <option value="LET" data-phone="0131 622 7979" data-reception="4">Leonardo Boutique Hotel Edinburgh City</option> 
+
+    <option value="LEC" data-phone="0131 535 9988" data-reception="4">Leonardo Hotel Edinburgh Murrayfield</option> 
+
+    <option value="LER" data-phone="0131 460 4600" data-reception="5">Leonardo Royal Hotel Edinburgh Haymarket</option> 
+
+    <option value="EDI" data-phone="0131 200 3300" data-reception="5">Leonardo Royal Hotel Edinburgh</option> 
+
+    <option value="EXI" data-phone="0139 231 2400" data-reception="6">Leonardo Hotel Exeter</option> 
+
+    <option value="GAI" data-phone="003539 156 6444" data-reception="5">Leonardo Hotel Galway</option> 
+
+    <option value="GLI" data-phone="0141 314 4800" data-reception="5">Leonardo Royal Hotel Glasgow</option> 
+
+    <option value="LGP" data-phone="0141 334 8161" data-reception="5">Leonardo Inn Glasgow West End</option> 
+
+    <option value="HHI" data-phone="0145 563 1122" data-reception="6">Leonardo Hotel and Conference Venue Hinckley Island</option> 
+
+    <option value="TIN" data-phone="0871 376 9023" data-reception="4">Leonardo Hotel Inverness</option> 
+
+    <option value="LEI" data-phone="0113 283 8800" data-reception="5">Leonardo Hotel Leeds</option> 
+
+    <option value="LVI" data-phone="0151 244 3777" data-reception="6">Leonardo Hotel Liverpool</option> 
+
+    <option value="CRI" data-phone="0208 448 6000" data-reception="5">Leonardo Hotel London Croydon</option> 
+
+    <option value="WTI" data-phone="0192 342 2800" data-reception="6">Leonardo Hotel London Watford</option> 
+
+    <option value="LHW" data-phone="0208 990 0000" data-reception="7">Leonardo Hotel London Heathrow Airport</option> 
+
+    <option value="LLT" data-phone="0207 959 5000" data-reception="0">Leonardo Royal Hotel London Tower Bridge</option> 
+
+    <option value="LLS" data-phone="0207 074 1000" data-reception="0">Leonardo Royal Hotel London St Paul's</option> 
+
+    <option value="LLC" data-phone="0207 863 3700" data-reception="0">Leonardo Royal Hotel London City</option> 
+
+    <option value="LLP" data-phone="0207 734 8000" data-reception="7">The Dilly</option> 
+
+    <option value="NLH" data-phone="0207 242 1800" data-reception="6">NYX London Holborn</option> 
+
+    <option value="MAI" data-phone="0161 953 8888" data-reception="6">Leonardo Hotel Manchester Central</option> 
+
+    <option value="LMM" data-phone="0161 236 3333" data-reception="0">The Midland Manchester</option> 
+
+    <option value="LMA" data-phone="0161 527 9300" data-reception="5">Leonardo Hotel Manchester Piccadilly</option> 
+
+    <option value="LMG" data-phone="0161 413 0000" data-reception="0">Leonardo Hotel Gotham</option> 
+
+    <option value="TMI" data-phone="0871 376 9028" data-reception="5">Leonardo Hotel Middlesbrough</option> 
+
+    <option value="MKI" data-phone="0190 884 3700" data-reception="6">Leonardo Hotel Milton Keynes</option> 
+
+    <option value="NWI" data-phone="0191 201 4400" data-reception="5">Leonardo Hotel Newcastle</option> 
+
+    <option value="GTI" data-phone="0191 401 6800" data-reception="5">Leonardo Hotel Newcastle Quayside</option> 
+
+    <option value="NTI" data-phone="0115 901 6700" data-reception="5">Leonardo Hotel Nottingham</option> 
+
+    <option value="HOX" data-phone="0186 548 9988" data-reception="6">Leonardo Royal Hotel Oxford</option> 
+
+    <option value="LPH" data-phone="0173 858 3771" data-reception="3">Leonardo Boutique Hotel Huntingtower Perth</option> 
+
+    <option value="PLI" data-phone="0175 263 1000" data-reception="5">Leonardo Hotel Plymouth</option> 
+
+    <option value="SHI" data-phone="0114 291 2222" data-reception="5">Leonardo Hotel Sheffield</option> 
+
+    <option value="SNI" data-phone="0238 037 1111" data-reception="5">Leonardo Hotel Southampton</option> 
+
+    <option value="LSG" data-phone="0238 063 3033" data-reception="7">Leonardo Royal Hotel Southampton Grand Harbour</option> 
+
+    <option value="SWI" data-phone="0179 344 5600" data-reception="5">Leonardo Hotel Swindon</option> 
+
+</select> 
+
+    <div class="form-group"> 
+
+        <label for="Guest Name">Name:</label> 
+
+        <input type="text" id="Guest Name" name="Guest Name"> 
+
+    </div> 
+
+  
+
+    <label for="scriptType">Select Email Type:</label> 
+
+    <div class="form-group"> 
+
+        <select id="scriptType"> 
+
+            <option value="lateCheckOut">Late Check-Out</option> 
+
+            <option value="earlyCheckIn">Early Check-In</option> 
+
+            <option value="advancedPurchase">Non-Refundable</option> 
+
+            <!-- Add more options here as needed --> 
+
+        </select> 
+
+    </div> 
+
+  
+
+    <div class="form-group"> 
+
+        <input type="button" value="Generate Email" onclick="generateEmail()"> 
+
+    </div> 
+
+  
+
+    <div class="confirmation" id="confirmationMessage" style="display: none;"> 
+
+        <pre id="emailContent"></pre> 
+
+    </div> 
+
+<script> 
+
+        function generateEmail() { 
+
+            // Get selected script type and guest name 
+
+            var scriptType = document.getElementById('scriptType').value; 
+
+            var guestName = document.getElementById('Guest Name').value || 'Guest'; // Get guest name or default to 'Guest' 
+
+            var select = document.getElementById('hotel'); 
+
+            var selectedOption = select ? select.options[select.selectedIndex] : null; 
+
+            var hotelName = selectedOption ? selectedOption.text : 'Leonardo Hotel Aberdeen'; 
+
+            var phoneNumber = '0122 438 1200'; // Set default phone number 
+
+            var reception = '5'; // Set default reception option 
+
+  
+
+            var emailContent; 
+
+  
+
+            // Generate email content based on selected script type 
+
+            if (scriptType === "lateCheckOut") { 
+
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for reaching out to us. We hope this email finds you well.\n\nLate check-out requests are subject to availability and cannot be guaranteed. Nevertheless, I will make a note of your request on your reservation. Upon arrival, please inquire with the reception if late check-out is possible. If not, you can securely store your luggage at the reception before check-out.\n\nTo check availability and possibly arrange a late check-out, please contact us directly at ${phoneNumber} and select option ${reception} to speak with our reception team at ${hotelName}.\n\nWe appreciate your understanding and look forward to welcoming you soon.`; 
+
+            } else if (scriptType === "earlyCheckIn") { 
+
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for reaching out to us. We hope this email finds you well.\n\nPlease note that early check-in is subject to availability and cannot be guaranteed. We will add a note to your reservation to inform the hotel reception of your request.\n\nFor the latest updates on early check-in availability, please call us at ${phoneNumber} and select option ${reception} to speak with our reception team at ${hotelName}. If early check-in isn’t possible, you may securely store your luggage at the reception.\n\nWe appreciate your understanding and look forward to welcoming you soon.`; 
+
+            } else if (scriptType === "advancedPurchase") { 
+
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nUpon review, it appears that the reservation is under the Advanced Purchase Discounted Rate, rendering it non-amendable and non-refundable according to the terms and conditions of the said rate.\n\nHowever, you may try to contact the hotel reception to check the possibility of cancelling/modifying the reservation within their system.\n\nPlease note that this option is not guaranteed and is subject to availability and the hotel's discretion. You can reach the hotel reception by dialing ${phoneNumber} and selecting option ${reception}.`; 
+
+            } 
+
+             
+
+            // Add more conditions for other types of scripts here 
+
+  
+
+            // Display the email content 
+
+            document.getElementById('emailContent').textContent = emailContent; 
+
+            document.getElementById('confirmationMessage').style.display = 'block'; 
+
+        } 
+
+    </script> 
+
+</body> 
+
+</html> 
+
+</html> 
+
+ 

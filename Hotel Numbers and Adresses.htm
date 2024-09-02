@@ -1,0 +1,1223 @@
+<head> 
+
+   <meta charset="UTF-8"> 
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+   <title>HTML preview</title> 
+
+   <style> 
+
+       @keyframes changeBackgroundColor { 
+
+           0% { 
+
+               background-color: #f3dee0; 
+
+           } 
+
+           25% { 
+
+               background-color: #df878f; 
+
+           } 
+
+           50% { 
+
+               background-color: #d54e5b; 
+
+         } 
+
+           75% { 
+
+               background-color: #d52737; 
+
+           } 
+
+           100% { 
+
+               background-color: #e51024; 
+
+           } 
+
+           75% { 
+
+               background-color: #d52737; 
+
+           } 
+
+           50% { 
+
+               background-color: #d54e5b; 
+
+           } 
+
+           25% { 
+
+               background-color: #df878f; 
+
+           } 
+
+           0% { 
+
+               background-color: #f3dee0; 
+
+           } 
+
+       } 
+
+  
+
+       body { 
+
+           font-family: 'Arial', sans-serif; 
+
+           animation: changeBackgroundColor 3s infinite; 
+
+           transition: background-color 0.1s ease; 
+
+            
+
+       } 
+
+  
+
+       .marquee { 
+
+           width: 100%; 
+
+           white-space: nowrap; 
+
+           overflow: visible; 
+
+           position: relative; 
+
+           background-color: #e51035; 
+
+           box-shadow: 0 0 25px rgba(0, 0, 0, 5.5); 
+
+       } 
+
+  
+
+       .marquee p { 
+
+           display: grid; 
+
+           padding-left: 17%; 
+
+           animation: bounce 2s ease-in-out infinite; 
+
+           font-size: 72px; 
+
+           font-weight: bold; 
+
+           color: white; 
+
+       } 
+
+  
+
+@keyframes bounce { 
+
+   0%, 20%, 50%, 80%, 100% { 
+
+       transform: translateY(0); /* Initial and final position */ 
+
+   } 
+
+   40% { 
+
+       transform: translateY(-30px); /* Upward bounce */ 
+
+   } 
+
+   60% { 
+
+       transform: translateY(-15px); /* Downward bounce */ 
+
+   } 
+
+} 
+
+   40% { 
+
+       transform: translateY(-30px); /* Upward bounce */ 
+
+   } 
+
+   60% { 
+
+       transform: translateY(-15px); /* Downward bounce */ 
+
+   } 
+
+} 
+
+  
+
+       .search-container { 
+
+           margin: 10px; 
+
+       } 
+
+  
+
+       .search-container input { 
+
+           padding: 10px; 
+
+           width: 100%; 
+
+           box-sizing: border-box; 
+
+           box-shadow: 0 0 55px rgba(0, 0, 0, 1.5); 
+
+       } 
+
+  
+
+       table { 
+
+           width: 100%; 
+
+           border-collapse: collapse; 
+
+           margin: 10px 0; 
+
+           background-color: #f6bcc3; 
+
+           box-shadow: 0 0 55px rgba(0, 0, 0, 1.5); 
+
+       } 
+
+  
+
+       table, 
+
+       th, 
+
+       td { 
+
+           border: 1.5px solid black; 
+
+       } 
+
+  
+
+       th, 
+
+       td { 
+
+           padding: 10px; 
+
+           text-align: center; 
+
+       } 
+
+  
+
+       th { 
+
+           background-color: #f5d1d6; 
+
+       } 
+
+  
+
+       tr:nth-child(even) { 
+
+           background-color: #f5d1d6; 
+
+       } 
+
+   </style> 
+
+   <script> 
+
+       function filterTable(event) { 
+
+           const filter = event.target.value.toUpperCase(); 
+
+           const rows = document.querySelector("#hotels-table tbody").rows; 
+
+  
+
+           for (const row of rows) { 
+
+               const cells = row.cells; 
+
+               let showRow = false; 
+
+  
+
+               for (const cell of cells) { 
+
+                   if (cell.textContent.toUpperCase().includes(filter)) { 
+
+                       showRow = true; 
+
+                       break; 
+
+                   } 
+
+               } 
+
+  
+
+               row.style.display = showRow ? "" : "none"; 
+
+           } 
+
+       } 
+
+   </script> 
+
+</head> 
+
+<body> 
+
+  
+
+   <div class="marquee"> 
+
+       <p>LEONARDO HOTELS</p> 
+
+   </div> 
+
+   <div class="search-container"> 
+
+       <input type="text" id="search-box" placeholder="Search..." onkeyup="filterTable(event)"> 
+
+   </div> 
+
+   <div class="table-container"> 
+
+       <table id="hotels-table"> 
+
+           <thead> 
+
+               <tr> 
+
+                   <th>Code</th> 
+
+                   <th>Hotel Name</th> 
+
+                   <th>Phone</th> 
+
+                   <th>Option</th> 
+
+                   <th>EXT</th> 
+
+                   <th>Address</th> 
+
+               </tr> 
+
+           </thead> 
+
+           <tbody> 
+
+               <tr> 
+
+                   <td>ABI</td> 
+
+                   <td>Leonardo Hotel Aberdeen</td> 
+
+                   <td>0122 438 1200</td> 
+
+                   <td>5</td> 
+
+                   <td>250</td> 
+
+                   <td>Union Square, Guild St, Aberdeen AB11 5RG</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LAS</td> 
+
+                   <td>Leonardo Inn Hotel Aberdeen Airport</td> 
+
+                   <td>0122 477 2884</td> 
+
+                   <td>-</td> 
+
+                   <td>249</td> 
+
+                   <td>Airport Rd, Argyll Rd, Dyce, Aberdeen AB21 0AF</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>TAP</td> 
+
+                   <td>Leonardo Hotel and Conference Venue Aberdeen Airport</td> 
+
+                   <td>0871 376 9000</td> 
+
+                   <td>4</td> 
+
+                   <td>282</td> 
+
+                   <td>Argyll Rd, Dyce, Aberdeen AB21 0AF</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>BFI</td> 
+
+                   <td>Leonardo Hotel Belfast</td> 
+
+                   <td>0289 053 3500</td> 
+
+                   <td>6</td> 
+
+                   <td>252</td> 
+
+                   <td>Great Victoria St, Belfast BT1 6DY</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>BHI</td> 
+
+                   <td>Leonardo Royal Hotel Birmingham</td> 
+
+                   <td>0121 606 9000</td> 
+
+                   <td>6</td> 
+
+                   <td>253</td> 
+
+                   <td>245 Broad Street, Birmingham, B1 2HQ</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>BDI</td> 
+
+                   <td>Leonardo Hotel Bradford</td> 
+
+                   <td>0127 484 8500</td> 
+
+                   <td>5</td> 
+
+                   <td>251</td> 
+
+                   <td>2 Thornton Road, Bradford, BD1 2DH</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>BRI</td> 
+
+                   <td>Leonardo Hotel Brighton</td> 
+
+                   <td>0127 386 2121</td> 
+
+                   <td>6</td> 
+
+                   <td>254</td> 
+
+                   <td>101 Stroudley Road, Brighton, BN1 4DJ</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LGB</td> 
+
+                   <td>The Grand Brighton</td> 
+
+                   <td>0127 322 4300</td> 
+
+                   <td>7</td> 
+
+                   <td>-</td> 
+
+                   <td>97-99 Kings Rd, Brighton, Brighton and Hove, Brighton BN1 2FW</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>TBR</td> 
+
+                   <td>Leonardo Royal Hotel Brighton Waterfront</td> 
+
+                   <td>0871 376 9041</td> 
+
+                   <td>6</td> 
+
+                   <td>293</td> 
+
+                   <td>Kings Rd, Brighton BN1 2GS</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LBG</td> 
+
+                   <td>Leonardo Hotel Bristol City</td> 
+
+                   <td>0117 374 5900</td> 
+
+                   <td>6</td> 
+
+                   <td>-</td> 
+
+                   <td>3 Temple Way, Bristol, BS2 0GS</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>TCA</td> 
+
+                   <td>Leonardo Hotel Cardiff</td> 
+
+                   <td>0871 376 9011</td> 
+
+                   <td>5</td> 
+
+                   <td>283</td> 
+
+                   <td>1 Park Pl, Cardiff CF10 3UD</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>TCH</td> 
+
+                   <td>Leonardo Hotel Cheltenham</td> 
+
+                   <td>0161 774 2984</td> 
+
+                   <td>4</td> 
+
+                   <td>284</td> 
+
+                   <td>Gloucester Rd, Cheltenham, Gloucestershire GL51 0TS</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LCG</td> 
+
+                   <td>Leonardo Hotel Chester</td> 
+
+                   <td>0124 466 7600</td> 
+
+                   <td>5</td> 
+
+                   <td>-</td> 
+
+                   <td>Pepper St, Chester CH1 1DW</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>CKI</td> 
+
+                   <td>Leonardo Hotel Cork</td> 
+
+                   <td>3532 1494 3000</td> 
+
+                   <td>6</td> 
+
+                   <td>258</td> 
+
+                   <td>Anderson's Quay, Centre, Cork, T12 DCR9</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>DBI</td> 
+
+                   <td>Leonardo Hotel Derby</td> 
+
+                   <td>0133 262 1000</td> 
+
+                   <td>6</td> 
+
+                   <td>260</td> 
+
+                   <td>King Street, Derby, DE1 3DB</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>CCI</td> 
+
+                   <td>Leonardo Hotel Dublin Christchurch</td> 
+
+                   <td>00353 1454 0000</td> 
+
+                   <td>5</td> 
+
+                   <td>255</td> 
+
+                   <td>8 Christchurch Pl, Dublin 8, D08 REK7</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>PAI</td> 
+
+                   <td>Leonardo Hotel Dublin Parnell Street</td> 
+
+                   <td>00353 1878 4900</td> 
+
+                   <td>5</td> 
+
+                   <td>275</td> 
+
+                   <td>Plaza, Moore St, Parnell St, North City, Dublin, D01 E0H3</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>NDT</td> 
+
+                   <td>NYX Hotel Dublin Christchurch</td> 
+
+                   <td> 00353 191 35400</td> 
+
+                   <td>5</td> 
+
+                   <td>290</td> 
+
+                   <td>18 Exchange Street Upper, Temple Bar, Dublin, D08 AV24, Ireland</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>NDP</td> 
+
+                   <td>NYX Hotel Dublin Portobello</td> 
+
+                   <td>00353 1695 0383</td> 
+
+                   <td>5</td> 
+
+                   <td>290</td> 
+
+                   <td>Portobello Harbour, Saint Kevin's, Dublin 8, D08 E1V7, Ireland</td> 
+
+               </tr>                
+
+               <tr> 
+
+                   <td>TEM</td> 
+
+                   <td>Leonardo Hotel East Midlands Airport</td> 
+
+                   <td>0161 774 2985</td> 
+
+                   <td>4</td> 
+
+                   <td>285</td> 
+
+                   <td>Ashby Road East Midlands Airport, Castle Donington, Derby DE74 2SH</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LET</td> 
+
+                   <td>Leonardo Boutique Hotel Edinburgh City</td> 
+
+                   <td>0131 622 7979</td> 
+
+                   <td>4</td> 
+
+                   <td>246</td> 
+
+                   <td>79 Lauriston Pl, Edinburgh EH3 9HZ</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LEC</td> 
+
+                   <td>Leonardo Hotel Edinburgh Murrayfield</td> 
+
+                   <td>0131 535 9988</td> 
+
+                   <td>4</td> 
+
+                   <td>248</td> 
+
+                   <td>187 Clermiston Rd, Edinburgh EH12 6UG</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LER</td> 
+
+                   <td>Leonardo Royal Hotel Edinburgh Haymarket</td> 
+
+                   <td>0131 460 4600</td> 
+
+                   <td>5</td> 
+
+                   <td>247</td> 
+
+                   <td>1 Morrison Link, Edinburgh EH3 8DN</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>EDI</td> 
+
+                   <td>Leonardo Royal Hotel Edinburgh</td> 
+
+                   <td>0131 200 3300</td> 
+
+                   <td>5</td> 
+
+                   <td>261</td> 
+
+                   <td>43 Jeffrey St, Edinburgh EH1 1DH</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>EXI</td> 
+
+                   <td>Leonardo Hotel Exeter</td> 
+
+                   <td>0139 231 2400</td> 
+
+                   <td>6</td> 
+
+                   <td>262</td> 
+
+                   <td>Western Way, Exeter, EX1 2DB</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>GAI</td> 
+
+                   <td>Leonardo Hotel Galway</td> 
+
+                   <td>003539 156 6444</td> 
+
+                   <td>5</td> 
+
+                   <td>263</td> 
+
+                   <td>Quay St, Galway, H91 E8D7, Ireland</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>GLI</td> 
+
+                   <td>Leonardo Royal Hotel Glasgow</td> 
+
+                   <td>0141 314 4800</td> 
+
+                   <td>5</td> 
+
+                   <td>264</td> 
+
+                   <td>80 Jamaica St, Glasgow G1 4QG</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LGP</td> 
+
+                   <td>Leonardo Inn Glasgow West End</td> 
+
+                   <td>0141 334 8161</td> 
+
+                   <td>5</td> 
+
+                   <td>245</td> 
+
+                   <td>4 Shelley Road, Glasgow, G12 0ZD</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>HHI</td> 
+
+                   <td>Leonardo Hotel and Conference Venue Hinckley Island</td> 
+
+                   <td>0145 563 1122</td> 
+
+                   <td>6</td> 
+
+                   <td>288</td> 
+
+                   <td>Watling Street, Hinckley, LE10 3JA</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>TIN</td> 
+
+                   <td>Leonardo Hotel Inverness</td> 
+
+                   <td>0871 376 9023</td> 
+
+                   <td>4</td> 
+
+                   <td>286</td> 
+
+                   <td>Millburn Rd, Inverness IV2 3TR</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LEI</td> 
+
+                   <td>Leonardo Hotel Leeds</td> 
+
+                   <td>0113 283 8800</td> 
+
+                   <td>5</td> 
+
+                   <td>268</td> 
+
+                   <td>Brewery Place, Brewery Wharf, Leeds, LS10 1NE</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LVI</td> 
+
+                   <td>Leonardo Hotel Liverpool</td> 
+
+                   <td>0151 244 3777</td> 
+
+                   <td>6</td> 
+
+                   <td>270</td> 
+
+                   <td>Number 31 Keel Wharf, Liverpool, L3 4FN</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>CRI</td> 
+
+                   <td>Leonardo Hotel London Croydon</td> 
+
+                   <td>0208 448 6000</td> 
+
+                   <td>5</td> 
+
+                   <td>259</td> 
+
+                   <td>Wellesley Road, Croydon, CR0 9XY</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>WTI</td> 
+
+                   <td>Leonardo Hotel London Watford</td> 
+
+                   <td>0192 342 2800</td> 
+
+                   <td>6</td> 
+
+                   <td>281</td> 
+
+                   <td>Clarendon Rd, Watford WD17 1JA</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LHW</td> 
+
+                   <td>Leonardo Hotel London Heathrow Airport</td> 
+
+                   <td>0208 990 0000</td> 
+
+                   <td>7</td> 
+
+                   <td>244</td> 
+
+                   <td>Bath Road, Sipson, West Drayton, UB7 0DP</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LLT</td> 
+
+                   <td>Leonardo Royal Hotel London Tower Bridge</td> 
+
+                   <td>0207 959 5000</td> 
+
+                   <td>0</td> 
+
+                   <td>239</td> 
+
+                   <td>45 Prescot St, London, E1 8GP</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LLS</td> 
+
+                   <td>Leonardo Royal Hotel London St Paul's</td> 
+
+                   <td>0207 074 1000</td> 
+
+                   <td>0</td> 
+
+                   <td>240</td> 
+
+                   <td>10 Godliman Street, London, EC4V 5AJ</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LLC</td> 
+
+                   <td>Leonardo Royal Hotel London City</td> 
+
+                   <td>0207 863 3700</td> 
+
+                   <td>0</td> 
+
+                   <td>241</td> 
+
+                   <td>8-14 Cooper's Row, London, EC3N 2BQ</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LLP</td> 
+
+                   <td>The Dilly</td> 
+
+                   <td>0207 734 8000</td> 
+
+                   <td>7</td> 
+
+                   <td>-</td> 
+
+                   <td>21 Piccadilly, London, W1J 0BH</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>NLH</td> 
+
+                   <td>NYX London Holborn</td> 
+
+                   <td>0207 242 1800</td> 
+
+                   <td>5</td> 
+
+                   <td>238</td> 
+
+                   <td>50 - 60 Southampton Row, London WC1B 4AR</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>MAI</td> 
+
+                   <td>Leonardo Hotel Manchester Central</td> 
+
+                   <td>0161 953 8888</td> 
+
+                   <td>6</td> 
+
+                   <td>271</td> 
+
+                   <td>Great Bridgewater Street, Manchester, M1 5LE</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LMM</td> 
+
+                   <td>The Midland Manchester</td> 
+
+                   <td>0161 236 3333</td> 
+
+                   <td>0</td> 
+
+                   <td>297</td> 
+
+                   <td>16 Peter St, Manchester M60 2DS</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LMA</td> 
+
+                   <td>Leonardo Hotel Manchester Piccadilly</td> 
+
+                   <td>0161 527 9300</td> 
+
+                   <td>5</td> 
+
+                   <td>-</td> 
+
+                   <td>260 Great Ancoats St, Manchester, M4 7DB</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LMG</td> 
+
+                   <td>Leonardo Hotel Gotham</td> 
+
+                   <td>0161 413 0000</td> 
+
+                   <td>0</td> 
+
+                   <td>-</td> 
+
+                   <td>100 King Street, Manchester, M2 4WU</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>TMI</td> 
+
+                   <td>Leonardo Hotel Middlesbrough</td> 
+
+                   <td>0871 376 9028</td> 
+
+                   <td>5</td> 
+
+                   <td>287</td> 
+
+                   <td>Fry Street, Middlesbrough, TS1 1JH</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>MKI</td> 
+
+                   <td>Leonardo Hotel Milton Keynes</td> 
+
+                   <td>0190 884 3700</td> 
+
+                   <td>6</td> 
+
+                   <td>272</td> 
+
+                   <td>Midsummer Blvd, Milton Keynes MK9 2HP</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>NWI</td> 
+
+                   <td>Leonardo Hotel Newcastle</td> 
+
+                   <td>0191 201 4400</td> 
+
+                   <td>5</td> 
+
+                   <td>274</td> 
+
+                   <td>Scotswood Road, Newcastle, NE1 4AD</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>GTI</td> 
+
+                   <td>Leonardo Hotel Newcastle Quayside</td> 
+
+                   <td>0191 401 6800</td> 
+
+                   <td>5</td> 
+
+                   <td>265</td> 
+
+                   <td>South Shore Road, Gateshead, NE8 3AE</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>NTI</td> 
+
+                   <td>Leonardo Hotel Nottingham</td> 
+
+                   <td>0115 901 6700</td> 
+
+                   <td>5</td> 
+
+                   <td>273</td> 
+
+                   <td>Station Street, Nottingham, NG2 3B</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>HOX</td> 
+
+                   <td>Leonardo Royal Hotel Oxford</td> 
+
+                   <td>0186 548 9988</td> 
+
+                   <td>6</td> 
+
+                   <td>289</td> 
+
+                   <td>Godstow Rd, Oxford OX2 8AL</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LPH</td> 
+
+                   <td>Leonardo Boutique Hotel Huntingtower Perth</td> 
+
+                   <td>0173 858 3771</td> 
+
+                   <td>3</td> 
+
+                   <td>243</td> 
+
+                   <td>Crieff Rd, Huntingtower, Perth PH1 3JT</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>PLI</td> 
+
+                   <td>Leonardo Hotel Plymouth</td> 
+
+                   <td>0175 263 1000</td> 
+
+                   <td>5</td> 
+
+                   <td>276</td> 
+
+                   <td>50 Exeter St, Plymouth PL4 0AZ, United Kingdom</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>SHI</td> 
+
+                   <td>Leonardo Hotel Sheffield</td> 
+
+                   <td>0114 291 2222</td> 
+
+                   <td>5</td> 
+
+                   <td>278</td> 
+
+                   <td>119 Eyre St, Sheffield City Centre, Sheffield S1 4QW</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>SNI</td> 
+
+                   <td>Leonardo Hotel Southampton</td> 
+
+                   <td>0238 037 1111</td> 
+
+                   <td>5</td> 
+
+                   <td>279</td> 
+
+                   <td>Charlotte Pl, Southampton SO14 0TB</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>LSG</td> 
+
+                   <td>Leonardo Royal Hotel Southampton Grand Harbour</td> 
+
+                   <td>0238 063 3033</td> 
+
+                   <td>7</td> 
+
+                   <td>242</td> 
+
+                   <td>West Quay Road, Southampton, SO15 1AG</td> 
+
+               </tr> 
+
+               <tr> 
+
+                   <td>SWI</td> 
+
+                   <td>Leonardo Hotel Swindon</td> 
+
+                   <td>0179 344 5600</td> 
+
+                   <td>5</td> 
+
+                   <td>280</td> 
+
+                   <td>Fleming Way, Swindon SN1 2NG</td> 
+
+               </tr> 
+
+           </tbody> 
+
+       </table> 
+
+</div></body> 
+
+</html> 

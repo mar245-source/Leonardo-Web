@@ -1,0 +1,623 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Cancellation Confirmation</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: 'Calibri', sans-serif; 
+
+            margin: 0; 
+
+            padding: 0; 
+
+            background: #f0f0f0; 
+
+            color: black; 
+
+        } 
+
+  
+
+        .container { 
+
+            width: 80%; 
+
+            margin: 20px auto; 
+
+            background: #fff; 
+
+            border-radius: 8px; 
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+
+            padding: 20px; 
+
+        } 
+
+  
+
+        h1, 
+
+        h2 { 
+
+            text-align: center; 
+
+            color: #333; 
+
+            padding: 20px 0; 
+
+        } 
+
+  
+
+        .form-group { 
+
+            margin-bottom: 15px; 
+
+        } 
+
+  
+
+        .form-group label { 
+
+            display: block; 
+
+            margin-bottom: 5px; 
+
+            font-weight: bold; 
+
+        } 
+
+  
+
+        .form-group input, 
+
+        .form-group select { 
+
+            width: calc(100% - 22px); 
+
+            padding: 10px; 
+
+            border: 1px solid #ddd; 
+
+            border-radius: 4px; 
+
+            box-sizing: border-box; 
+
+        } 
+
+  
+
+        .form-group input[type="button"] { 
+
+            background-color: black; 
+
+            color: #fff; 
+
+            border: none; 
+
+            cursor: pointer; 
+
+        } 
+
+  
+
+        .form-group input[type="button"]:hover { 
+
+            background-color: #333; 
+
+        } 
+
+  
+
+        .confirmation { 
+
+            border: 1px solid #ddd; 
+
+            padding: 20px; 
+
+            background-color: #fff; 
+
+            margin-top: 20px; 
+
+            display: none; 
+
+        } 
+
+  
+
+        .confirmation h2 { 
+
+            font-size: 1.5em; 
+
+            margin-bottom: 20px; 
+
+            text-align: center; 
+
+        } 
+
+  
+
+        .confirmation p { 
+
+            margin: 10px 0; 
+
+            line-height: 1.6; 
+
+        } 
+
+  
+
+        .confirmation .header, 
+
+        .confirmation .content { 
+
+            margin-bottom: 20px; 
+
+        } 
+
+  
+
+        .confirmation .header p { 
+
+            margin: 5px 0; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+  
+
+<body> 
+
+    <div class="container"> 
+
+        <h2>Cancellation Request Form</h2> 
+
+        <form id="reservationForm"> 
+
+            <div class="form-group"> 
+
+                <label for="hotel">Select Hotel:</label> 
+
+                <select id="hotel" name="hotel"> 
+
+<option value="Leonardo Hotel Aberdeen">ABI</option> 
+
+<option value="Leonardo Inn Hotel Aberdeen Airport">LAS</option> 
+
+<option value="Leonardo Hotel and Conference Venue Aberdeen Airport">TAP</option> 
+
+<option value="Leonardo Hotel Belfast">BFI</option> 
+
+<option value="Leonardo Royal Hotel Birmingham">BHI</option> 
+
+<option value="Leonardo Hotel Bradford">BDI</option> 
+
+<option value="Leonardo Hotel Brighton">BRI</option> 
+
+<option value="The Grand Brighton">LGB</option> 
+
+<option value="Leonardo Royal Hotel Brighton Waterfront">TBR</option> 
+
+<option value="Leonardo Hotel Bristol City">LBG</option> 
+
+<option value="Leonardo Hotel Cardiff">TCA</option> 
+
+<option value="Leonardo Hotel Cheltenham">TCH</option> 
+
+<option value="Leonardo Hotel Chester">LCG</option> 
+
+<option value="Leonardo Hotel Cork">CKI</option> 
+
+<option value="Leonardo Hotel Derby">DBI</option> 
+
+<option value="Leonardo Hotel Dublin Christchurch">CCI</option> 
+
+<option value="Leonardo Hotel Dublin Parnell Street">PAI</option> 
+
+<option value="NYX Hotel Dublin Portobello">NDP</option> 
+
+<option value="Leonardo Hotel East Midlands Airport">TEM</option> 
+
+<option value="Leonardo Boutique Hotel Edinburgh City">LET</option> 
+
+<option value="Leonardo Hotel Edinburgh Murrayfield">LEC</option> 
+
+<option value="Leonardo Royal Hotel Edinburgh Haymarket">LER</option> 
+
+<option value="Leonardo Royal Hotel Edinburgh">EDI</option> 
+
+<option value="Leonardo Hotel Exeter">EXI</option> 
+
+<option value="Leonardo Hotel Galway">GAI</option> 
+
+<option value="Leonardo Royal Hotel Glasgow">GLI</option> 
+
+<option value="Leonardo Inn Glasgow West End">LGP</option> 
+
+<option value="Leonardo Hotel and Conference Venue Hinckley Island">HHI</option> 
+
+<option value="Leonardo Hotel Inverness">TIN</option> 
+
+<option value="Leonardo Hotel Leeds">LEI</option> 
+
+<option value="Leonardo Hotel Liverpool">LVI</option> 
+
+<option value="Leonardo Hotel London Croydon">CRI</option> 
+
+<option value="Leonardo Hotel London Watford">WTI</option> 
+
+<option value="Leonardo Hotel London Heathrow Airport">LHW</option> 
+
+<option value="Leonardo Royal Hotel London Tower Bridge">LLT</option> 
+
+<option value="Leonardo Royal Hotel London St Paul's">LLS</option> 
+
+<option value="Leonardo Royal Hotel London City">LLC</option> 
+
+<option value="The Dilly">LLP</option> 
+
+<option value="NYX London Holborn">NLH</option> 
+
+<option value="Leonardo Hotel Manchester Central">MAI</option> 
+
+<option value="The Midland Manchester">LMM</option> 
+
+<option value="Leonardo Hotel Manchester Piccadilly">LMA</option> 
+
+<option value="Leonardo Hotel Gotham">LMG</option> 
+
+<option value="Leonardo Hotel Middlesbrough">TMI</option> 
+
+<option value="Leonardo Hotel Milton Keynes">MKI</option> 
+
+<option value="Leonardo Hotel Newcastle">NWI</option> 
+
+<option value="Leonardo Hotel Newcastle Quayside">GTI</option> 
+
+<option value="Leonardo Hotel Nottingham">NTI</option> 
+
+<option value="Leonardo Royal Hotel Oxford">HOX</option> 
+
+<option value="Leonardo Boutique Hotel Huntingtower Perth">LPH</option> 
+
+<option value="Leonardo Hotel Plymouth">PLI</option> 
+
+<option value="Leonardo Hotel Sheffield">SHI</option> 
+
+<option value="Leonardo Hotel Southampton">SNI</option> 
+
+<option value="Leonardo Royal Hotel Southampton Grand Harbour">LSG</option> 
+
+<option value="Leonardo Hotel Swindon">SWI</option> 
+
+            </select> 
+
+                </select> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="cancellationNumber">Cancellation Number:</label> 
+
+                <input type="text" id="cancellationNumber" name="cancellationNumber"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="firstName">First Name:</label> 
+
+                <input type="text" id="firstName" name="firstName"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="lastName">Last Name:</label> 
+
+                <input type="text" id="lastName" name="lastName"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="cancellation">Date of Cancellation:</label> 
+
+                <input type="text" id="cancellation" name="cancellation"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="arrival">Date of Arrival:</label> 
+
+                <input type="text" id="arrival" name="arrival"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="departure">Date of Departure:</label> 
+
+                <input type="text" id="departure" name="departure"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="nights">Number of Nights:</label> 
+
+                <input type="number" id="nights" name="nights" min="1"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="rooms">Number of Rooms:</label> 
+
+                <input type="number" id="rooms" name="rooms" min="1"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="guests">Number of Guests per Room:</label> 
+
+                <input type="number" id="guests" name="guests" min="1"> 
+
+                <label for="total">Total:</label> 
+
+                <input type="number" id="total" name="total" min="1"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="currency">Currency:</label> 
+
+                <select id="currency" name="currency" required> 
+
+                    <option value="GBP">£</option> 
+
+                    <option value="EUR">€</option> 
+
+                </select> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="rateType">Rate Type:</label> 
+
+                <select id="rateType" name="rateType" required> 
+
+                    <option value="Room Only">Room Only</option> 
+
+                    <option value="Bed & Breakfast">Bed & Breakfast</option> 
+
+                </select> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="cancellationPolicy">Cancellation Policy:</label> 
+
+                <select id="cancellationPolicy" name="cancellationPolicy"> 
+
+                    <option value="flexible">Flexible</option> 
+
+                    <option value="corporate">Corporate</option> 
+
+                    <option value="sameDay">Same Day</option> 
+
+                    <option value="advancedPurchase">Advanced Purchase</option> 
+
+                </select> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <input type="button" value="Generate Confirmation" onclick="generateConfirmation()"> 
+
+            </div> 
+
+        </form> 
+
+    </div> 
+
+    <div class="container confirmation" id="confirmationContainer" style="display:none;"> 
+
+        <div class="header"> 
+
+            <h2>Cancellation Confirmation</h2> 
+
+        </div> 
+
+        <div class="content"> 
+
+            <p><strong>Cancellation of Your Reservation at <span id="confirmhotel"></span> on <span id="confirmCancel"></span></strong></p> 
+
+            <p>Dear <span id="firstName">,</p> 
+
+            <p>Good Day!</p> 
+
+            <p>I can confirm your reservation with us has been cancelled. Please find details of your cancelled reservation below.</p> 
+
+            <p><strong>Cancellation Number:</strong> <span id="confirmCancellationNumber"></span></p> 
+
+            <p><strong>Name of Guest:</strong> <span id="confirmName"></span></p> 
+
+            <p><strong>Number of Adults:</strong> <span id="confirmAdults"></span></p> 
+
+            <p><strong>Number of Rooms:</strong> <span id="confirmRooms"></span></p> 
+
+            <p><strong>Date of Arrival:</strong> <span id="confirmArrival"></span></p> 
+
+            <p><strong>Number of Nights:</strong> <span id="confirmNights"></span></p> 
+
+            <p><strong>Date of Departure:</strong> <span id="confirmDeparture"></span></p> 
+
+            <p><strong>Rate:</strong><br> <span id="confirmCurrency"></span><span id="confirmtotal"></span> Total per room, inclusive of tax and services - <span id="confirmrateType"></span></p> 
+
+            <p id="cancellationMessage"></p> 
+
+            <p>If you require any further information or we can assist you with any further reservations, please do not hesitate to contact us and we will be delighted to assist you.</p> 
+
+            <p>Thank you for reaching out to us.</p> 
+
+        </div> 
+
+    </div> 
+
+    <script> 
+
+        function generateConfirmation() { 
+
+            // Retrieve the input values from the form 
+
+            const cancellationNumber = document.getElementById('cancellationNumber').value; 
+
+            const firstName = document.getElementById('firstName').value; 
+
+            const lastName = document.getElementById('lastName').value; 
+
+            const hotel = document.getElementById('hotel').value; 
+
+            const cancellationDate = document.getElementById('cancellation').value; 
+
+            const arrival = document.getElementById('arrival').value; 
+
+            const departure = document.getElementById('departure').value; 
+
+            const nights = document.getElementById('nights').value; 
+
+            const rooms = document.getElementById('rooms').value; 
+
+            const guests = document.getElementById('guests').value; 
+
+            const rateType = document.getElementById('rateType').value; 
+
+            const currencyCode = document.getElementById('currency').value; 
+
+            const total = document.getElementById('total').value; 
+
+            const cancellationPolicy = document.getElementById('cancellationPolicy').value; 
+
+  
+
+            // Define currency symbols 
+
+            const currencySymbols = { 
+
+                'GBP': '£', 
+
+                'EUR': '€' 
+
+            }; 
+
+  
+
+            // Update the confirmation fields with the retrieved values 
+
+            document.getElementById('confirmCancellationNumber').textContent = cancellationNumber; 
+
+            document.getElementById('confirmName').textContent = `${firstName} ${lastName}`; 
+
+            document.getElementById('confirmAdults').textContent = guests; 
+
+            document.getElementById('confirmRooms').textContent = rooms; 
+
+            document.getElementById('confirmArrival').textContent = arrival; 
+
+            document.getElementById('confirmNights').textContent = nights; 
+
+            document.getElementById('confirmDeparture').textContent = departure; 
+
+            document.getElementById('confirmrateType').textContent = rateType; 
+
+            document.getElementById('confirmtotal').textContent = total; 
+
+            document.getElementById('confirmhotel').textContent = hotel; 
+
+            document.getElementById('confirmCancel').textContent = cancellationDate; 
+
+  
+
+            // Set the currency symbol 
+
+            const currencySymbol = currencySymbols[currencyCode] || ''; 
+
+            document.getElementById('confirmCurrency').textContent = currencySymbol; 
+
+  
+
+            // Set cancellation policy message 
+
+            let message = ''; 
+
+            switch (cancellationPolicy) { 
+
+                case 'flexible': 
+
+                    message = 'As you have cancelled within the cancellation period, this reservation has been cancelled free of charge.'; 
+
+                    break; 
+
+                case 'corporate': 
+
+                    message = 'As you have cancelled after 2 PM local time on the day of arrival, you will be charged for this cancellation.'; 
+
+                    break; 
+
+                case 'sameDay': 
+
+                    message = 'As you have cancelled within the cancellation period, this reservation has been cancelled free of charge.'; 
+
+                    break; 
+
+                case 'advancedPurchase': 
+
+                    message = 'As you booked the Advance Purchase discounted rate and cancelled within 48 hours of your arrival, no refund is available as per the terms and conditions.'; 
+
+                    break; 
+
+                default: 
+
+                    message = 'Cancellation policy information is not available.'; 
+
+            } 
+
+            document.getElementById('cancellationMessage').textContent = message; 
+
+  
+
+            // Display the confirmation section 
+
+            document.getElementById('confirmationContainer').style.display = 'block'; 
+
+        } 
+
+    </script> 
+
+</body> 
+
+</html> 

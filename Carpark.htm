@@ -1,0 +1,875 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Booking Confirmation</title> 
+
+    <style> 
+
+        body { 
+
+            font-family: 'Calibri', sans-serif; 
+
+            margin: 0; 
+
+            padding: 0; 
+
+            background: #f0f0f0; 
+
+            color: black; 
+
+        } 
+
+  
+
+        .container { 
+
+            width: 80%; 
+
+            margin: 20px auto; 
+
+            background: #fff; 
+
+            border-radius: 8px; 
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+
+            padding: 20px; 
+
+        } 
+
+  
+
+        h1 { 
+
+            text-align: center; 
+
+            color: #333; 
+
+            padding: 20px 0; 
+
+        } 
+
+  
+
+        .form-group { 
+
+            margin-bottom: 15px; 
+
+        } 
+
+  
+
+        .form-group label { 
+
+            display: block; 
+
+            margin-bottom: 5px; 
+
+            font-weight: bold; 
+
+        } 
+
+  
+
+        .form-group input, 
+
+        .form-group select { 
+
+            width: calc(100% - 22px); 
+
+            padding: 10px; 
+
+            border: 1px solid #ddd; 
+
+            border-radius: 4px; 
+
+            box-sizing: border-box; 
+
+        } 
+
+  
+
+        .form-group input[type="button"] { 
+
+            background-color: black; 
+
+            color: #fff; 
+
+            border: none; 
+
+            cursor: pointer; 
+
+        } 
+
+  
+
+        .form-group input[type="button"]:hover { 
+
+            background-color: #333; 
+
+        } 
+
+  
+
+    .confirmation { 
+
+        border: 1px solid #ddd; 
+
+        padding: 15px; 
+
+        background-color: #f9f9f9; 
+
+        margin-top: 20px; 
+
+        display: none; 
+
+        word-wrap: break-word; /* Ensure text wraps within the container */ 
+
+        overflow: auto; /* Adds a scrollbar if content overflows */ 
+
+    } 
+
+  
+
+    #emailContent { 
+
+        white-space: pre-wrap; /* Preserve whitespace but allow wrapping */ 
+
+        word-wrap: break-word; /* Break long words */ 
+
+    } 
+
+        .confirmation h2 { 
+
+            font-size: 1.5em; 
+
+            margin-bottom: 10px; 
+
+        } 
+
+  
+
+        .confirmation p { 
+
+            margin: 5px 0; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+  
+
+<body> 
+
+            <div class="form-group"> 
+
+                <label for="GuestName">Name:</label> 
+
+                <input type="text" id="GuestName" name="GuestName"> 
+
+            </div> 
+
+  
+
+            <div class="form-group"> 
+
+                <label for="scriptType">Select Script Type:</label> 
+
+                <select id="scriptType" required> 
+
+                    <option value="carParkingAberdeenUnionSquare">Leonardo Hotel Aberdeen</option>  
+
+  
+
+                    <option value="carParkingAberdeenAirportInn">Leonardo Inn Hotel Aberdeen Airport</option>  
+
+  
+
+                    <option value="carParkingAberdeenAirportVenue">Leonardo Hotel and Conference Venue Aberdeen Airport</option>  
+
+  
+
+                    <option value="carParkingBelfast">Leonardo Hotel Belfast</option>  
+
+  
+
+                    <option value="carParkingBirmingham">Leonardo Royal Hotel Birmingham</option>  
+
+  
+
+                    <option value="carParkingBradford">Leonardo Hotel Bradford</option>  
+
+  
+
+                    <option value="carParkingBrighton">Leonardo Hotel Brighton</option>  
+
+  
+
+                    <option value="carParkingGrandBrighton">The Grand Brighton</option>  
+
+  
+
+                    <option value="carParkingBrightonWaterfront">Leonardo Royal Hotel Brighton Waterfront</option>  
+
+  
+
+                    <option value="carParkingBristolCity">Leonardo Hotel Bristol City</option>  
+
+  
+
+                    <option value="carParkingCardiff">Leonardo Hotel Cardiff</option>  
+
+  
+
+                    <option value="carParkingCheltenham">Leonardo Hotel Cheltenham</option>  
+
+  
+
+                    <option value="carParkingChester">Leonardo Hotel Chester</option>  
+
+  
+
+                    <option value="carParkingCork">Leonardo Hotel Cork</option>  
+
+  
+
+                    <option value="carParkingDerby">Leonardo Hotel Derby</option>  
+
+  
+
+                    <option value="carParkingDublinChristchurch">Leonardo Hotel Dublin Christchurch</option>  
+
+  
+
+                    <option value="carParkingDublinParnellStreet">Leonardo Hotel Dublin Parnell Street</option>  
+
+  
+
+                    <option value="carParkingDublinPortobello">NYX Hotel Dublin Portobello</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelEastMidlandsAirport">Leonardo Hotel East Midlands Airport</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelEdinburghCity">Leonardo Boutique Hotel Edinburgh City</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelEdinburghMurrayfield">Leonardo Hotel Edinburgh Murrayfield</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelEdinburghHaymarket">Leonardo Royal Hotel Edinburgh Haymarket</option>  
+
+  
+
+                    <option value="carParkingLeonardoRoyalHotelEdinburgh">Leonardo Royal Hotel Edinburgh</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelExeter">Leonardo Hotel Exeter</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelGalway">Leonardo Hotel Galway</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelGlasgow">Leonardo Royal Hotel Glasgow</option>  
+
+  
+
+                    <option value="carParkingLeonardoInnHotelGlasgowWestEnd">Leonardo Inn Glasgow West End</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelHinckleyIsland">Leonardo Hotel and Conference Venue Hinckley Island</option>  
+
+  
+
+                    <option value="carParkingLeonardoInnHotelInverness">Leonardo Hotel Inverness</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelLeeds">Leonardo Hotel Leeds</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelLiverpool">Leonardo Hotel Liverpool</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelLondonCroydon">Leonardo Hotel London Croydon</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelLondonWatford">Leonardo Hotel London Watford</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelLondonHeathrowAirport">Leonardo Hotel London Heathrow Airport</option>  
+
+  
+
+                    <option value="carParkingLeonardoRoyalHotelLondonTowerBridge">Leonardo Royal Hotel London Tower Bridge</option>  
+
+  
+
+                    <option value="carParkingLeonardoRoyalHotelLondonStPauls">Leonardo Royal Hotel London St Paul's</option>  
+
+  
+
+                    <option value="carParkingLeonardoRoyalHotelLondonCity">Leonardo Royal Hotel London City</option>  
+
+  
+
+                    <option value="carParkingTheDillyLondon">The Dilly</option>  
+
+  
+
+                    <option value="carParkingNYXLondonHolborn">NYX London Holborn</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelManchesterCentral">Leonardo Hotel Manchester Central</option>  
+
+  
+
+                    <option value="carParkingTheMidlandManchester">The Midland Manchester</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelManchesterPiccadilly">Leonardo Hotel Manchester Piccadilly</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelGotham">Leonardo Hotel Gotham</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelMiddlesbrough">Leonardo Hotel Middlesbrough</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelMiltonKeynes">Leonardo Hotel Milton Keynes</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelNewcastle">Leonardo Hotel Newcastle</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelNewcastleQuayside">Leonardo Hotel Newcastle Quayside</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelNottingham">Leonardo Hotel Nottingham</option>  
+
+  
+
+                    <option value="carParkingLeonardoRoyalHotelOxford">Leonardo Royal Hotel Oxford</option>  
+
+  
+
+                    <option value="carParkingLeonardoBoutiqueHotelHuntingtowerPerth">Leonardo Boutique Hotel Huntingtower Perth</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelPlymouth">Leonardo Hotel Plymouth</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelSheffield">Leonardo Hotel Sheffield</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelSouthampton">Leonardo Hotel Southampton</option>  
+
+  
+
+                    <option value="carParkingLeonardoRoyalHotelSouthamptonGrandHarbour">Leonardo Royal Hotel Southampton Grand Harbour</option>  
+
+  
+
+                    <option value="carParkingLeonardoHotelSwindon">Leonardo Hotel Swindon</option>  
+
+  
+
+                </select>  
+
+  
+
+  
+
+            </div> 
+
+  
+
+            <div class="form-group"> 
+
+                <input type="button" value="Generate Email" onclick="generateEmail()"> 
+
+            </div> 
+
+  
+
+            <div class="confirmation" id="confirmationMessage"> 
+
+                <pre id="emailContent"></pre> 
+
+            </div> 
+
+        </form> 
+
+    </div> 
+
+  
+
+    <script> 
+
+        document.getElementById('hotelSearch').addEventListener('input', function () { 
+
+            var filter = this.value.toUpperCase(); 
+
+            var select = document.getElementById('hotel'); 
+
+            var options = select.getElementsByTagName('option'); 
+
+  
+
+            for (var i = 0; i < options.length; i++) { 
+
+                var txtValue = options[i].textContent || options[i].innerText; 
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+
+                    options[i].style.display = ""; 
+
+                } else { 
+
+                    options[i].style.display = "none"; 
+
+                } 
+
+            } 
+
+        }); 
+
+  
+
+        function generateEmail() { 
+
+            var scriptType = document.getElementById('scriptType').value; 
+
+            var guestName = document.getElementById('GuestName').value || 'Guest'; 
+
+            var select = document.getElementById('hotel'); 
+
+            var selectedOption = select ? select.options[select.selectedIndex] : null; 
+
+            var hotelName = selectedOption ? selectedOption.text : 'Leonardo Hotel Aberdeen'; 
+
+            var emailContent; 
+
+  
+
+if (scriptType === "carParkingAberdeenUnionSquare") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Aberdeen:\n\nJurys Inn Aberdeen is part of Union Square Shopping Centre which has 2 car parks providing 1700 parking spaces. The nearest car park to Jurys Inn is the College Street car park where charges are £6 for 24 hours on the upper levels (level 9 and above) and is pay and display parking. Access from the car park to the hotel is via the covered bridge linking the car park to the Centre via the railway station.\n\nThe Union Square Shopping Centre car park charges are £16 for 24 hours. Full details of parking are available on the Union Square website:\nhttps://www.unionsquareaberdeen.com/parking/union-square\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingAberdeenAirportVenue") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel and Conference Venue Aberdeen Airport:\n\nWe have an onsite car park which is available to all guests, if you are staying at our hotel the rate will be £3.00 per night. If you are not staying with us but would like to use our car park, the rate would be £25.00 for 24 hours.\n\nPlease bring your car parking token to reception before you leave the car park.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingAberdeenAirportInn") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Inn Hotel Aberdeen Airport:\n\nWe have an on-site car park which is £4.00 per night for hotel guests and £25.00 per 24 hours for non-residents.\n\nIf you are looking for Park & Fly Package Information, please let me know.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingBelfast") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see the below car parking information for Leonardo Hotel Belfast:\n\nValue Car Parks is located beside our hotel and offers guests a discounted parking rate:\n\nMonday - Saturday (5pm - 10am) - £8.00\n\nSunday (5pm - 12noon) - £8.00\n\n£3.30 per hour is charged outside the above hours. Maximum daily charge is £21.00.\n\nPlease ensure the ticket is validated at Reception.\n\nPlease let me know if there is anything else I can help you with.`; 
+
+} else if (scriptType === "carParkingBirmingham") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel Birmingham:\n\nWe have an onsite car park which is on a first come, first served basis which is £16.50 overnight. We are unable to reserve any spaces.\n\nWe also offer an hourly rate:\nUp to 1 Hour: £2.50\nUp to 2 Hours: £4.00\nUp to 3 Hours: £5.00\nUp to 4 to 6 Hours: £8.00\n7 to 10 Hours: £11.50\n11 to 24 Hours: £16.50\n\nThe height restriction for this car park is 1.7 metres.\n\nBirmingham Clean Air Zone\nFrom June 2021, The Birmingham Clean Air Zone (CAZ) came into effect and operates 24 hours a day, 365 days a year. It is designed to reduce vehicle emissions inside the city centre. For additional information, please visit: https://www.gov.uk/check-clean-air-zone-charge\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingBradford") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Bradford:\n\nParking is available at the NCP Bradford Southgate Car Park which is around a 2-minute walk.\n\nThe current rate for overnight parking is £12.00. The opening times of this car park are 06:00am – 12:00am. Please note you will not be able to access the car park outside these hours.\n\nAddress for the NCP Bradford Southgate Car Park: Off Thornton Road, Bradford, BD1 2AP.\n\nPlease note: All rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingBrighton") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Brighton:\n\nThe nearest public car park is the Brighton Station car park, adjacent to the hotel, which is only a 5-minute walk.\n\nThe rates for parking are as follows:\nMonday – Friday: £16.20 Daily Rate\nSaturday: £14.90 Daily Rate\nSunday: £7.60 Daily Rate\n\nCar Park Address:\nMulti-story car park Brighton Station\nQueens Road,\nBrighton, BN1 3XP\n\nAll rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingGrandBrighton") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for The Grand, Brighton:\n\nWe have an onsite car park which is on a first come, first served basis. The rate is £40.00 per night, which is paid at the hotel directly.\n\nThere is also an off-site National Car Park (NCP) directly behind the hotel on Russell Road, which has over 500 spaces. Please check the NCP website for rates.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingBrightonWaterfront") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel Brighton Waterfront:\n\nWe recommend the Lanes Car Park, which is situated underneath the hotel.\n\nWe can offer a discounted rate of £29.00 for 24 hours and your ticket will need to be validated at reception.\n\nThis car park is open 24 hours and has a height restriction of 1.91 metres.\n\nCarpark address: Black Lion Street, Brighton, BN1 1ND\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingBristolCity") { 
+
+    emailContent = `Dear ${guestName},\n\nPlease see the parking information for Leonardo Hotel Bristol City:\n\nWe recommend the Gardiner Haskins car park, which is only a 2-minute walk from our hotel.\n\nCar park address: Unity Street, BS2 0HN\nDiscounted Rate: £12.60 for 24 hours\nNo height restriction - Open air car park\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nPlease be aware that the large car park to the front of the hotel is private and automatic number plate recognition is in place. If guests park in this area, there is a risk of a penalty fine.\n\nPlease let me know if there is anything else I can help you with.`; 
+
+} else if (scriptType === "carParkingCardiff") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Cardiff:\n\nWe have an on-site car park available at our hotel with 55 spaces; the rate is £20.00 per night, which can be paid at reception. Please note that this is on a first come, first served basis and cannot be reserved.\n\nWe have 3 off-site car parks we recommend:\n\nNCP Car Park – Greyfriars Road\nLocation: 2-minute walk to our hotel\nPostcode: CF10 3AD\nDiscounted Rate: £28.00 per 24 Hours (Ticket must be validated at reception)\n\nCapital Shopping Car Park\nLocation: 5-minute walk to our hotel\nPostcode: CF10 2HH\nRate: £18.00 per 24 Hours\nPlease note this car park is closed between midnight and 6am.\n\nNCP Car Park – Dunfries Place\nLocation: 5-minute walk to our hotel\nPostcode: CF10 3FN\nRate: £28.00 per 24 Hours\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingCheltenham") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Cheltenham:\n\nOur car park is located on-site and has a 24-hour surveillance system. The charge for hotel guests is £6.00 per night per car, and it is complimentary for blue badge holders. Please pay for parking at the Reception upon arrival or via the Just Park App.\n\nThe car park operates on a first come, first served basis, and spaces cannot be pre-booked.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingChester") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Chester:\n\nWe have a limited number of on-site parking spaces available which cannot be reserved. The cost is £13.00 per night. If our car park is full, there are two nearby alternative car parks that we recommend:\n\nNCP Pepper Street - CH1 1DF (2-minute walk from the hotel)\nThe NCP Pepper Street car park offers a discounted rate of £14.00 per 24 hours for our guests.\n\nGrosvenor Car Park - CH1 1XW (4-minute walk from the hotel)\nThe Grosvenor car park offers a rate of £10.00 per 24 hours for our guests. Tickets must be validated at reception to qualify for the discounted rate.\n\nPlease note that all rates are subject to change and cannot be reserved in advance.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingCork") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Cork:\n\nWe have an onsite car park which is £10.00 per night and is available on a first come, first served basis.\n\nIf our car park is full, there is an alternative car park called Carroll’s Quay, which is less than a 5-minute walk from the hotel. The charge here is £10.00 per 24 hours.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingDerby") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Derby:\n\nWe have an onsite car park which is £8.00 per night. This is available on a first come, first served basis. Unfortunately, we are unable to pre-book spaces.\n\nAlternatively, there is a public car park on Chapel Street with 24-hour access. Charges are £6.50 per 24 hours.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingDublinChristchurch") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Dublin Christchurch:\n\nWe have partnered with Q Park Christchurch to offer guests a discounted rate of £19.00 per 24 hours. The car park is a 2-minute walk from the hotel.\n\nPlease bring your parking ticket to reception for validation before departure.\n\nQ Park Christchurch\nCook Street\nDublin 8\nEircode: D08 R9TW\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingDublinParnellStreet") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Dublin Parnell Street:\n\nWe do not have on-site parking, but we recommend the following two options:\n\n1. **Q Park, The Spire:**\n   - Address: Marlborough Street, Dublin 1\n   - 24 hours €17.50 (Discounted Rate)\n   - Hotel Validation Required\n\n2. **Park Rite, Irish Life Mall:**\n   - Address: Abbey Street, Dublin 1\n   - 24 hours €17.00 (Discounted Rate)\n   - Hotel Validation Required\n\nPlease bring your parking ticket to reception for validation before departure.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} else if (scriptType === "carParkingDublinPortobello") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for NYX Hotel Dublin Portobello:\n\nWe do not have on-site parking, but we recommend the following options nearby:\n\n1. **Q-Park St Stephen's Green:**\n   - 24 Hours: €25.00 (Discounted Rate)\n   - Hotel Validation Required\n\n2. **Park Rite Drury Street:**\n   - 24 Hours: €18.00 (Discounted Rate)\n   - Hotel Validation Required\n\nPlease bring your parking ticket to reception for validation before departure.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+if (scriptType === "carParkingLeonardoHotelEastMidlandsAirport") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel East Midlands Airport:\n\nWe have 350 onsite parking spaces. Please note that only residents of the hotel can park at the rate of £5 per night. Below are the hourly charges:\n\n48 minutes to 1 Hour: £4.00\n1 to 3 Hours: £6.00\n3 to 5 Hours: £10.00\n5 to 7 Hours: £15.00\n7 to 12 Hours: £25.00\n12 to 24 Hours: £37.00\n\nPlease note that parking is only available for the duration of the hotel stay unless booked as part of a park and fly package.\n\nIf you are looking to book a Park & Fly Package, please let me know.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelEdinburghCity") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Edinburgh City:\n\nWe recommend the Edinburgh Castle Terrace car park, which is a 15-minute walk to our hotel.\n\nWe can offer a discounted rate of £32.00 for 24 hours. Please ensure you validate your ticket at reception.\n\nCar park address: Castle Terrace, Edinburgh, EH1 2EW\nHeight Restriction: 2.08 metres.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelEdinburghMurrayfield") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Edinburgh Murrayfield:\n\nWe have an on-site car park which is complimentary for guests to use.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelEdinburghHaymarket") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Edinburgh Haymarket:\n\nWe have an on-site car park with limited spaces available. Please note that this is on a first-come, first-served basis, and we are unable to reserve any spaces. We can offer a 24-hour rate of £8.00.\n\nWe also recommend the Fountain Park Car Park, which is a 10-minute walk away from our hotel. The rate for 24 hours is £10.00. The postcode is NE8 5JB.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoRoyalHotelEdinburgh") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel Edinburgh:\n\nWe recommend the APCOA Edinburgh Waverley Station Car Park, which is situated underneath the hotel.\n\nWe can offer a discounted rate of £18.00 for 24 hours. Your ticket will need to be validated at reception.\n\nThis car park is open 24 hours and has a height restriction of 1.90 metres.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelExeter") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email. As requested, please see below for car parking information for Leonardo Hotel Exeter:\n\nCar parking is available at the Summerland Gate Car Park, Belgrave Road, EX1 2LB. The car park is situated directly opposite the main entrance of the hotel, with the entrance on Belgrave Road.\n\nGuests staying at our hotel can benefit from a reduced rate of £10.00 per 24 hours. This must be paid for upon departure from the hotel. The car park is fully secure with 35 CCTV cameras and features 239 spaces, including 15 disabled bays. Open between 07:00 - 02:00.\n\nCar parking is also available at the Triangle Car Park, which is a pay-and-display council car park.\n\nCHARGING PERIOD – Mon – Sun 8:00am – 10:00pm. Including bank holidays. This car park is not locked.\n\nTARIFF – 2hrs £3.40, 3hrs £4.50, 4hrs £5.60, 5hrs £6.70, 6hrs £7.80, 7hrs £8.90, and all day £13.00.\n\nThe car park is situated a 4-minute walk from the hotel entrance. Postcode EX1 2BL.\n\nPlease let me know if there is anything else I can do for you.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelGalway") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Galway:\n\nThe Spanish Arch Car Park is adjacent to the hotel, and we have negotiated a discount of €10.00 per 24 hours. Ask reception to validate your ticket and pay at the pay station located on the ground floor of the car park.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelGlasgow") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Glasgow:\n\nQ-Park Jamaica Street – 15 Adams Court Lane, G1 4NL (adjacent to Matalan) – our guests get 50% off the standard prices listed below. Please follow the link to pre-book your space and quote JIJS50 to receive the discount. Simply select the date and duration of your stay, then input your vehicle registration number to enable the barriers to open. You can enter and exit as many times as you like during the pre-book period without any need for tickets.\n\nPre-book via this link: https://www.q-park.co.uk/en-gb/cities/glasgow/jamaica-street/\n\nUp to 1 hour £2.00\nUp to 2 hours £4.00\nUp to 3 hours £6.00\nUp to 4 hours £8.00\nUp to 5 hours £10.00\nUp to 6 hours £12.00\nUp to 7 hours £14.50\nUp to 8 hours £16.50\nUp to 10 hours £19.00\nUp to 12 hours £20.00\nUp to 24 hours £22.00\n\n*Please note that the 50% discount will only be applied to pre-booked spaces through the Q Park website. We can no longer validate this at our reception desk. Should you have any issues or questions, it is possible to stop outside the hotel briefly and ask reception for information/directions, or alternatively, there is a help button on all machines inside the car park.\n\nPlease note all rates are subject to availability and can be changed without notice.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoInnHotelGlasgowWestEnd") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Inn Hotel Glasgow West End:\n\nWe have an onsite car park which is on a first-come, first-served basis. The rate is £5.00 per night.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelHinckleyIsland") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel and Conference Venue Hinckley Island:\n\nOur hotel has 600 car parking spaces situated all around the outside of the hotel. All car parking is complimentary. On arrival to the hotel, there is a barrier that automatically opens. On departure, you will need to obtain a barrier code from reception prior to leaving to enable you to depart.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoInnHotelInverness") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Inn Hotel Inverness:\n\nOn-site car parking is available with 133 car parking spaces and 3 disabled spaces, and it is free of charge for hotel residents.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelLeeds") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Leeds:\n\nWe offer discounted parking at the nearby NCP Car Park on George Street.\n\nThe rate is £15.00 for 24 hours. You will need to validate your ticket at the hotel reception to receive this discount.\n\nPlease note that parking spaces are limited and are subject to availability.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelLiverpool") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Liverpool:\n\nWe offer a 24-hour parking rate of £12.00 at the nearby Q-Park on the Strand. Please ask at reception for a validation ticket.\n\nFor further details or to pre-book your space, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/liverpool/strand/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelLondonCroydon") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel London Croydon:\n\nParking is available at the nearby Whitgift Centre Car Park. We offer a discounted rate of £10.00 per 24 hours.\n\nPlease get your ticket validated at our reception before leaving the car park.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelLondonWatford") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel London Watford:\n\nWe have 60 parking spaces available on-site. The charge is £10.00 per night. Please ensure you register your vehicle at reception upon check-in.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelLondonHeathrowAirport") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel London Heathrow Airport:\n\nWe offer a Park & Fly package which includes parking for up to 15 days. The cost for this package is £100.00.\n\nIf you are not booking the Park & Fly package, you may use the on-site parking at £15.00 per day. Please note that parking is subject to availability.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoRoyalHotelLondonTowerBridge") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel London Tower Bridge:\n\nWe have an arrangement with the nearby Q-Park on Fenchurch Street, offering a discounted rate of £22.00 for 24 hours. Please ensure you validate your ticket at reception.\n\nFor more details, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/london/fenchurch-street/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoRoyalHotelLondonStPauls") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel London St Paul's:\n\nThe nearest car park is NCP London Wall, located a short walk from the hotel. We offer a discounted rate of £25.00 for 24 hours.\n\nPlease ask at reception for validation of your ticket.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoRoyalHotelLondonCity") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel London City:\n\nParking is available at the nearby Q-Park on Cooper's Row. We offer a discounted rate of £20.00 for 24 hours. Please validate your ticket at reception.\n\nFor further details or to pre-book, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/london/coopers-row/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingTheDillyLondon") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for The Dilly London:\n\nWe recommend the nearby Q-Park at Chinatown. The rate is £30.00 for 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/london/chinatown/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingNYXLondonHolborn") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for NYX London Holborn:\n\nParking is available at the nearby Bloomsbury Car Park. We offer a discounted rate of £20.00 for 24 hours. Please validate your ticket at the hotel reception.\n\nFor more details, please visit the car park website at https://www.bloomsburycarpark.co.uk/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelManchesterCentral") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Manchester Central:\n\nWe offer parking at the nearby Q-Park on Deansgate. The rate is £15.00 per 24 hours. Please ask at reception for a discount voucher.\n\nFor more details, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/manchester/deansgate/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingTheMidlandManchester") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for The Midland Manchester:\n\nWe recommend the NCP Car Park at Manchester Central, which offers a discounted rate of £18.00 for 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the NCP website at https://www.ncp.co.uk/locations/manchester/manchester-central/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelManchesterPiccadilly") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Manchester Piccadilly:\n\nWe offer parking at the nearby Q-Park on Piccadilly. The rate is £20.00 per 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/manchester/piccadilly/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelGotham") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Gotham:\n\nWe offer parking at the nearby NCP Car Park on New Quay Street. The rate is £25.00 per 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the NCP website at https://www.ncp.co.uk/locations/manchester/new-quay-street/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelMiddlesbrough") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Middlesbrough:\n\nWe have a complimentary car park with 70 spaces available on-site for guests.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelMiltonKeynes") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Milton Keynes:\n\nWe offer parking at the nearby CMK Car Park with a discounted rate of £12.00 per 24 hours. Please validate your ticket at reception.\n\nFor more details, please visit the CMK Car Park website at https://www.cmks.co.uk/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelNewcastle") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Newcastle:\n\nWe offer parking at the nearby NCP Car Park on Dean Street. The rate is £15.00 per 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the NCP website at https://www.ncp.co.uk/locations/newcastle/dean-street/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelNewcastleQuayside") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Newcastle Quayside:\n\nWe offer parking at the nearby Q-Park on John Dobson Street with a discounted rate of £18.00 per 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the Q-Park website at https://www.q-park.co.uk/en-gb/cities/newcastle/john-dobson-street/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelNottingham") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Nottingham:\n\nWe offer parking at the nearby Nottingham City Car Park with a discounted rate of £12.00 per 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the Nottingham City Car Park website at https://www.nottinghamcitycarparks.co.uk/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoRoyalHotelOxford") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel Oxford:\n\nWe offer parking at the nearby Park & Ride with a discounted rate of £10.00 per day. Please validate your ticket at reception.\n\nFor more details, please visit the Park & Ride website at https://www.oxfordshire.gov.uk/residents/environment-and-sustainability/transport/park-ride/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoBoutiqueHotelHuntingtowerPerth") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Boutique Hotel Huntingtower Perth:\n\nWe have complimentary parking available on-site for our guests.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelPlymouth") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Plymouth:\n\nWe have a complimentary car park available for guests with limited spaces. It operates on a first-come, first-served basis.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelSheffield") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Sheffield:\n\nWe offer parking at the nearby NCP Car Park on Eyre Street. The rate is £15.00 for 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the NCP website at https://www.ncp.co.uk/locations/sheffield/eyre-street/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelSouthampton") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Southampton:\n\nWe offer parking at the nearby NCP Car Park on Harbour Parade with a discounted rate of £12.00 per 24 hours. Please validate your ticket at our reception.\n\nFor more details, please visit the NCP website at https://www.ncp.co.uk/locations/southampton/harbour-parade/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoRoyalHotelSouthamptonGrandHarbour") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Royal Hotel Southampton Grand Harbour:\n\nWe have on-site parking available at a rate of £18.00 per day. Please register your vehicle at reception.\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+if (scriptType === "carParkingLeonardoHotelSwindon") { 
+
+    emailContent = `Dear ${guestName},\n\nThank you for your email.\n\nPlease see below for information regarding car parking for Leonardo Hotel Swindon:\n\nWe offer parking at the nearby Fleming Way Car Park with a discounted rate of £10.00 per 24 hours. Please validate your ticket at reception.\n\nFor more details, please visit the Fleming Way Car Park website at https://www.swindon.gov.uk/info/20010/parking/1307/fleming_way_car_park/\n\nShould there be anything else we can assist you with, please do not hesitate to contact us.`; 
+
+} 
+
+  
+
+  
+
+            document.getElementById('emailContent').textContent = emailContent; 
+
+            document.getElementById('confirmationMessage').style.display = 'block'; 
+
+        } 
+
+    </script> 
+
+</body> 
+
+  
+
+</html> 
+
+ 
